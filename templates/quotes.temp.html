@@ -1,0 +1,88 @@
+{% extends "basic.temp.html" %} {% load static %} 
+
+{% block links %}
+<script src="{% static 'js/quotes.js' %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet" />
+{% endblock links %} 
+
+{% block quotes %}
+<header class="text-center bg-primary p-2" style="height: 75px">
+		<a href="/" style="text-decoration: none; color:white;font-family: 'Dancing Script', cursive;">
+			<h1>Apostolic Church Milan</h1>
+		</a>
+</header>
+	<h3 class="text-center bg-light mb-4">Quotes</h3>
+<div class="container m-auto">
+	<div class="row container">
+	<form class="col-sm-4">
+		{% csrf_token %}
+		<!-- TODO get data from data base  -->
+		<ul style="list-style: none;" class="text-light">
+			<li class="mb-3">
+				<label>Service</label>
+				<select class="form-control rounded-pill" name="selection" id="selection">
+					<option value="all" id="all">All</option>
+					{% for i in event %}
+					<option id="{{ i.id }}" value="{{ i.id }}">{{ i.Event }}</option>
+					{% endfor %}
+				</select>
+			</li>
+			<li class="mb-3">
+				<label>Book</label>
+				<select class="form-control rounded-pill" name="book" id="book">
+					<option value="all" id="all">All</option>
+					{% for i in book %}
+					<option id="{{ i.Book }}" value="{{ i.id }}">{{ i.Book }}</option>
+					{% endfor %}
+				</select>
+			</li>
+			<li class="mb-3">
+				<input
+					class="form-control btn btn-sm rounded-pill bg-primary"
+					id="filter"
+					type="button"
+					value="filter"
+				/>
+			</li>
+			<li class="mb-3">
+				<div id="google_translate_element"></div>
+			</li>
+		</ul>
+	</form>
+
+	<article class="col-sm-8" id="quotes">
+		{% for q in quotes %}
+
+		<div id="{{ q.event.id }}" class="card mb-3 container rounded-lg">
+			<div class="card-title row bg-info rounded">
+				<div class="col">
+					<h5 class="card-title">
+						{{ q.book }} {{ q.verse }} : {{ q.fro }} {% if q.to %} - {{ q.to }}
+						{% else %} {% endif %}
+					</h5>
+				</div>
+				<div class="col">
+					<p class="float-right">
+						{{ q.event }} <sub>{{ q.date }}</sub>
+					</p>
+				</div>
+			</div>
+			<div class="card-body">
+				<p class="card-text">{{ q.quote | safe }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</article>
+</div>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+		}
+	</script>
+
+	<script
+		type="text/javascript"
+		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+	></script>
+</div>
+{% endblock quotes %}

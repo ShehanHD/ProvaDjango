@@ -1,0 +1,47 @@
+.album{
+    transition: all .7s ease-in-out;
+    box-shadow: rgb(204, 138, 32) 3px 3px 1px 0px;
+    border: 4px ridge rgb(204, 138, 32);
+}
+
+.album:hover{
+    transform: scale(1.1);
+    box-shadow: rgb(204, 138, 32) 0px 0px 3px 4px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.title{
+    transition: all .7s ease-in-out;
+}
+
+.title:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.photos{
+    transition: all .7s ease-in-out;
+    box-shadow: white 3px 3px 1px 0px;
+}
+
+.photos:hover{
+    transform: scale(1.1);
+    box-shadow: white 0px 0px 3px 4px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.description{
+    font-family: 'Satisfy', cursive;
+    font-size: 130%;
+}
+
+.title{
+    font-family: 'Cute Font', cursive;
+    font-size: 200%;
+}
+
+.homeTitle{
+    font-family: 'Cinzel', serif;
+}

@@ -1,0 +1,35 @@
+.OUR-MENU{
+    font-size: 20px !important
+}
+
+.imgGal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .gal_text {
+    color: rgb(183, 191, 230);
+    font-weight: bold;
+    z-index: 5;
+  }
+
+  .mainGal{
+      position: relative;
+      transition: all .7s ease-in-out;
+  }
+
+  .mainGal:hover{
+    transform: scale(1.5)
+}
+
+.album{
+    transition: all .2s ease-in-out;
+}
+
+.album:hover{
+    transform: scale(1.1);
+    ;
+}

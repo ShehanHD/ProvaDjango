@@ -1,0 +1,24 @@
+{% extends 'gallery.temp.html' %}
+
+{% block galleryBody %}
+
+<div id="body" class="row mt-4 text-center">
+
+    <!-- 
+        ! create album using database primary key
+        * giving a name to backend to open that album selected
+        * open album using AJAX
+    -->
+    {% for i in event %}
+    <button class="bg-dark border-0 col-sm-3 m-auto h-100" name="albumRqe" value="{{ i.id }}" onclick="f1('{{ i.id }}', '{{ i.Event }}')">
+            <div class="album rounded-lg card blue-gradient mb-2 h-100">
+                <div class="card-body">
+                    <h5 class="title text-light card-title border-bottom">{{ i.Event }}</h5>
+                    <img class="card-text rounded-circle" src="media/{{ i.thumbnail }}" alt="" height="80%" width="80%" >
+                </div>
+            </div>   
+    </button> 
+    {% endfor %}
+</div>
+
+{% endblock galleryBody %}

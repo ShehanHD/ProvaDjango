@@ -1,0 +1,107 @@
+{% load static %}
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css">
+    <!-- Our css -->
+    <link rel="stylesheet" href="{% static 'css/gallery.main.css' %}">
+    <script src="{% static 'js/gallery.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Cute+Font|Satisfy&display=swap" rel="stylesheet">
+    <title>Gallery</title>
+</head>
+<body class="bg-dark">
+<div class="fixed-top">
+            <div class="text-center">
+                <div class="col-sm-12 col-xs-12 mb-3 blue-gradient">
+                    <p onclick="window.history.back();" class = "title homeTitle text-center h1 h2 p-3 p-1">Apostolic Church Milan</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-5"></div>
+<!-- 
+    <section class="container">
+
+        <div class="row container">
+                <div class="col-sm-4">
+                    <button onclick="window.location.reload();" class="btn rounded OUR-MENU aqua-gradient text-capitalize w-100">Gallery 
+                        <i class="fas fa-church fa-sm pl-2"></i>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button href="/video" class="btn rounded OUR-MENU purple-gradient text-capitalize w-100">video 
+                        <i class="fas fa-video fa-sm pl-2"></i>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button onclick="f1('null', 'All Photos')" class="btn rounded OUR-MENU blue-gradient text-capitalize w-100">Photo 
+                        <i class="fas fa-camera fa-sm pl-2"></i>
+                    </button>
+                </div>
+        </div>
+    </section> -->
+
+    <!-- nav bar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary mb-3">
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active mr-2">
+              <a onclick="window.location.reload();" class="btn rounded OUR-MENU aqua-gradient text-capitalize w-100 nav-link m-auto" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Gallery <i class="fas fa-church fa-sm pl-2"></i></a>
+            </li>
+
+            <li class="nav-item mr-2">
+              <button  href="/video" class="btn rounded OUR-MENU purple-gradient text-capitalize w-100 nav-link m-auto"  data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Videos <i class="fas fa-video fa-sm pl-2"></i></button>
+            </li>
+
+            <li class="nav-item mr-2">
+              <button onclick="f1('null', 'All Photos')" class="btn rounded OUR-MENU blue-gradient text-capitalize w-100 nav-link m-auto" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">Photos <i class="fas fa-camera fa-sm pl-2"></i></button>
+            </li>
+
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control form-control-sm mr-sm-2 rounded-pill" type="text" placeholder="Search" disabled>
+            <button class="btn btn-sm btn-secondary my-2 my-sm-0 rounded-pill" type="submit" disabled><i class="fas fa-search"> Search</i></button>
+          </form>
+        </div>
+      </nav>
+      <!-- end of nav bar -->
+    <div class="container">
+    <h1 id="title" class="text-center text-light"></h1>
+    {% block galleryBody %}
+        
+    {% endblock galleryBody %}
+    </div>
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+
+</body>
+</html>

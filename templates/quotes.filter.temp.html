@@ -1,0 +1,53 @@
+{% extends "quotes.temp.html" %} {% load static %} {% block links %}
+
+<script src="{% static 'js/quotes.js' %}"></script>
+
+{% endblock links %} {% block quotes %}
+<article class="quotes" id="quotes">
+	{% if quotes %} {% for q in quotes %}
+	<div id="{{ q.event.id }}" class="card mb-3 container rounded">
+		<div class="card-title row bg-info rounded">
+			<div class="col">
+				<h4 class="card-title">
+					{{ q.book }} {{ q.verse }} : {{ q.fro }} {% if q.to %} - {{ q.to }}
+					{% else %} {% endif %}
+				</h4>
+			</div>
+			<div class="col">
+				<h4 class="float-right">
+					{{ q.event }} <sub>{{ q.date }}</sub>
+				</h4>
+			</div>
+		</div>
+		<div class="card-body">
+			<p class="card-text">{{ q.quote | safe }}</p>
+		</div>
+	</div>
+
+	{% endfor %} {% else %}
+	<div class="card mb-3 container rounded">
+			<div class="card-title bg-info rounded">
+				<div>
+					<h4 class="card-title">
+						Try With a valid request
+					</h4>
+				</div>
+			</div>
+			<div class="card-body">
+				<p class="card-text">Sorry we don't have what are you looking for</p>
+			</div>
+		</div>
+	{% endif %}
+</article>
+
+<script type="text/javascript">
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+	}
+</script>
+
+<script
+	type="text/javascript"
+	src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+></script>
+{% endblock quotes %}

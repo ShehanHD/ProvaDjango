@@ -1,0 +1,72 @@
+@media screen and (min-width: 1501px) {
+
+    .body {
+        display: grid;
+        grid-template-columns: repeat(8, 2fr);
+        grid-template-rows: repeat(auto-fill, 4);
+        grid-template-areas:
+            "header header header header header header header header"
+            " title title  title title title title title title "
+            "menu quotes quotes quotes quotes quotes quotes quotes"
+            "footer footer footer footer footer footer footer footer";
+    }
+
+}
+@media screen and (min-width: 850px) and (max-width: 1500px) {
+
+    .body {
+        display: grid;
+        grid-template-columns: repeat(8, 2fr);
+        grid-template-rows: repeat(auto-fill, 4);
+        grid-template-areas:
+            "header header header header header header header header"
+            " title title  title title title title title title "
+            "menu menu quotes quotes quotes quotes quotes quotes"
+            "footer footer footer footer footer footer footer footer";
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    .body {
+        display: grid;
+        grid-template-columns: 2fr 2fr 2fr 2fr;
+        grid-template-rows: repeat(auto-fit, 5);
+        grid-template-areas:
+            "header header header header"
+            "title title title title"
+            "menu menu menu menu"
+            "quotes quotes quotes quotes"
+            "footer footer footer footer";
+    }
+}
+
+.menu{
+    text-align: center;
+    grid-area: menu;
+}
+
+.header {
+    text-align: center;
+    grid-area: header;
+}
+
+.title {
+    text-align: center;
+    grid-area: title;
+}
+
+.quotes {
+    grid-area: quotes;
+}
+
+.footer {
+    text-align: center;
+    grid-area: footer;
+}
+
+li {
+    margin: 2px;
+    padding: 2px;
+}

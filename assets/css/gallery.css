@@ -1,0 +1,12 @@
+.OUR-MENU{
+    font-size: 20px !important
+}
+
+.album{
+    transition: all .2s ease-in-out;
+}
+
+.album:hover{
+    transform: scale(1.1);
+    ;
+}
